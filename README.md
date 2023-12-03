@@ -10,4 +10,4 @@ This is why an exclusion exists for this type of file:
 ~$*
 ```
 
-Sometimes, you'll be working from an actual Office document and only want to share the code as .bas, .frm and .frx files. In that case, feel free to add extensions for Office documents extensions to your .gitignore file.
+Sometimes, you'll be working from an actual Office document and only want to share the code as .bas, .frm and .frx files. In that case, feel free to add extensions for Office documents extensions to your .gitignore file. Some of them are already in the template .gitignore file as commented out line. Just remove the "#" to add them back as needed.

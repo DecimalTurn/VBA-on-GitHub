@@ -1,2 +1,21 @@
 # Office temporary files
 ~$*
+
+# Excel documents (xla, xlam, xls, xlsb, xlsm and xlsx)
+# *.[xX][lL][aA]
+# *.[xX][lL][aA][mM]
+# *.[xX][lL][sS]
+# *.[xX][lL][sS][bB]
+# *.[xX][lL][sS][mM]
+# *.[xX][lL][sS][xX]
+
+# Word documents (doc and docx)
+# *.[dD][oO][cC]
+# *.[dD][oO][cC][xX]
+
+# PowerPoint documents (ppt and pptx)
+# *.[pP][pP][tT]
+# *.[pP][pP][tT][xX]
+
+# Access documents (accdb)
+# *.[aA][cC][cC][dD][bB]
