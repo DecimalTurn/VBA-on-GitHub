@@ -39,3 +39,4 @@ So far, this download issue is the only known issue related to encoding with the
   - Use the right file extensions
   - If you .bas files doesn't contain any VBA specific syntax, maybe it's OK if is classified as VB6 instead.
 - Mention git lfs?
+- Add .editorcondig? https://github.com/DecimalTurn/Excel-Pomodoro-Timer/blob/main/.editorconfig
