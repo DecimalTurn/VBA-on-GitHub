@@ -38,3 +38,4 @@ So far, this download issue is the only known issue related to encoding with the
   - Make sure that your files include the VBE's metadata such as the `Attribute VB_Name = "..."`
   - Use the right file extensions
   - If you .bas files doesn't contain any VBA specific syntax, maybe it's OK if is classified as VB6 instead.
+- Mention git lfs?
