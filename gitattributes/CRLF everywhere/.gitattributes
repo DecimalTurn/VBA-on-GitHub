@@ -1,7 +1,13 @@
-# A .gitattributes configuration file that fights against Git to keep CRLF inside the index. 
+# This .gitattributes file is configured to fight against Git to keep CRLF inside the index. 
 
-# Important: This .gitattributes makes use of the crlf filter. To make sure it is active, run the following command at the root of the git repo: git config include.path ../.gitconfig
-# (The reason why we need the ".." is to move one folder up because the config file is located in the .git subfolder.)
+# Important: This fie makes use of the a filter named "crlf". This filter users the unix2dos command that is included with Git for Windows (and most Unix distro).
+# To make sure this filter is active, you have 2 options (A or B): 
+# A) 
+# - Run the following command at the root of your Git repository: git config --add filter.crlf.clean unix2dos
+# B) 
+# - Run the following command at the root of the Git repository: git config include.path ../.gitconfig
+#   (The reason why we need the ".." is to move one folder up because the config file is located in the .git subfolder.)
+# - Then make sure that you have a file named .gitconfig in your Git repository like this file: https://github.com/DecimalTurn/Using-VBA-on-GitHub/blob/main/gitattributes/CRLF%20everywhere/.gitconfig
 
 # By default, auto detect text files and perform LF normalization
 * text=auto                 eol=lf
