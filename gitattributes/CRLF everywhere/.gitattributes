@@ -28,4 +28,46 @@
 *.[cC][mM][dD]              filter=crlf -text
 *.[bB][aA][tT]              filter=crlf -text
 
-# The rest of the .gitattributes can be taken from the standard .gitattributes file.
+############################################################################
+# Optional Sections
+############################################################################
+
+# Excel documents (xla, xlam, xls, xlsb, xlsm and xlsx)
+*.[xX][lL][aA]              binary
+*.[xX][lL][aA][mM]          binary
+*.[xX][lL][sS]              binary
+*.[xX][lL][sS][bB]          binary
+*.[xX][lL][sS][mM]          binary
+*.[xX][lL][sS][xX]          binary
+
+# Word documents (doc and docx)
+*.[dD][oO][cC]              diff=astextplain
+*.[dD][oO][cC][xX]          diff=astextplain
+
+# PowerPoint documents (ppt and pptx)
+*.[pP][pP][tT]              binary
+*.[pP][pP][tT][xX]          binary                  
+
+# Access documents (accdb)
+*.[aA][cC][cC][dD][bB]      binary
+
+# Images            
+*.[jJ][pP][gG]              binary
+*.[pP][nN][gG]              binary
+*.[bB][mM][pP]              binary
+*.[gG][iI][fF]              binary
+*.[iI][cC][oO]              binary
+
+# Compressed files
+*.[zZ][iI][pP]              binary
+*.[cC][aA][bB]              binary
+*.[7][zZ]                   binary
+*.[gG][zZ]                  binary
+
+# Executables
+*.[eE][xX][eE]              binary
+*.[dD][lL][lL]              binary
+
+# Other
+*.[pP][dD][fF]              diff=astextplain
+
