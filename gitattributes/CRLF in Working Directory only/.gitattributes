@@ -17,6 +17,10 @@
 *.[cC][mM][dD]              text eol=crlf
 *.[bB][aA][tT]              text eol=crlf
 
+############################################################################
+# Optional Sections
+############################################################################
+
 # Excel documents (xla, xlam, xls, xlsb, xlsm and xlsx)
 *.[xX][lL][aA]              binary
 *.[xX][lL][aA][mM]          binary
