@@ -1,6 +1,6 @@
 # This .gitattributes file is configured to fight against Git to keep CRLF inside the index. 
 
-# Important: This fie makes use of the a filter named "crlf". This filter users the unix2dos command that is included with Git for Windows (and most Unix distro).
+# Important: This fie makes use of the a filter named "crlf". This filter users the unix2dos command that is included with Git for Windows (and most Unix distributions).
 # To make sure this filter is active, you have 2 options (A or B): 
 # A) 
 # - Run the following command at the root of your Git repository: git config --add filter.crlf.clean unix2dos
