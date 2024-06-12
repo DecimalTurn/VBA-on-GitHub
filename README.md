@@ -35,14 +35,23 @@ This is because git configurations are case-sensitive: if we don't want to use 2
 
 # .gitattributes
 
-There is 2 ways you can configure your .gitattributes file. Both of them have their pros and cons, but the I would suggest you to use the first method to avoid issues like [this one](https://github.com/VBA-tools/VBA-Dictionary/issues/38) if you project becomes really popular.
+A template .gitattributes file is provided here: 
 
-1) CRLF everywhere ([template](https://github.com/DecimalTurn/VBA-on-GitHub/blob/main/gitattributes/CRLF%20everywhere/.gitattributes)): This approach will make sure that Git doesn't touch to your code files. It won't perfom any line endings or text encoding conversion.
+📖 https://github.com/DecimalTurn/VBA-on-GitHub/blob/main/gitattributes/CRLF%20everywhere/.gitattributes
 
-2) CRLF in Working Directory only ([template](https://github.com/DecimalTurn/VBA-on-GitHub/blob/main/gitattributes/CRLF%20in%20Working%20Directory%20only/.gitattributes)): This version will make sure that VBA related files are encoded using UTF-8 and Unix-style line endings (LF) when they are committed to the Git index. This is to better work with the GitHub UI which is often expecting those specific encodings to work properly.
+This template will make sure that Git doesn't touch your VBA code files. It won't perfom any line endings or text encoding conversion.
 
-Disclaimer: Converting your files to use UTF-8 and LF line endings means that people that want to download your code might have a problem if they try to download the a raw file with code.
-![Alt text](./docs/img/ScreenCapDownloadRawFile.png)
+## Explanations
+
+If you need a refresher or you've never had to think about how line endings work, I'd suggest to have a look at the introduction of [this article](https://www.hanselman.com/blog/carriage-returns-and-line-feeds-will-ultimately-bite-you-some-git-tips) by Scott Hanselman. It will explain the origin of this CRLF vs LF issue.
+
+Now, you'll first notice the use of `* text=auto eol=lf` in the template. The first part (`* text=auto`) is to let Git decide automatically for all files (`*`) if the `text` attribute should be "set" (aka. true) or "unset" (aka. false). Having the `text` attribute set "enables end-of-line conversion: When a matching file is added to the index, the file's line endings are normalized to LF in the index." <sup>1</sup>. Usually, Git is pretty good at determining if a file is a text or binary file, but it's important to place the `* text=auto` line at the top, so that the lines that come after can override this behavior when we need it to<sup>2</sup>.
+
+The second part (`eol=lf`) is tells Git to perform line conversion to LF during on checkout. Since LF is usually recognized as the default now, this is a good practice. The remaining lines in the .gitattributes file are then there to deal with the exceptions to this rule.
+
+### Does the use of `-text` affect how Git performs diffs?
+
+The short answer is no, this won't affect how Git performs diffs, the text attribute is only there to determine if Git will perform line endings conversion, the diff attribute is there to determine how diffs are performed. Note that setting the `binary` atribute is equivalent to doing `-text -diff` (it is a [macro attribute](https://git-scm.com/docs/gitattributes#_using_macro_attributes)).
 
 ## Should you specify the `working-tree-encoding` attribute?
 
@@ -67,3 +76,9 @@ Regarding the attribute `linguist-language=vba`, I choose not to include it in t
 
 # Upcoming sections:
 - Section about .editorcondig? Eg.: https://github.com/DecimalTurn/Excel-Pomodoro-Timer/blob/main/.editorconfig
+
+<hr>
+
+[1] - [Git - gitattributes Documentation](https://git-scm.com/docs/gitattributes#_text)
+
+[2] - [Mind the End of Your Line ∙ Adaptive Patchwork](https://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/)
