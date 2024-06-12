@@ -46,13 +46,16 @@ Disclaimer: Converting your files to use UTF-8 and LF line endings means that pe
 
 ## Should you specify the `working-tree-encoding` attribute?
 
-TLDR : Probably no, unless you have code comment in a language other than english. You should never have non-ascii characters in code that is shared outside your computer because those character will appear differently on someone with a machine using a different encoding due to language configurations. Note that non-ascii characters won't appear correctly one other people's machine using a different encoding either, but at least it won'T change the behavior of the program. The only benefit of using `working-tree-encoding` is that you'll have a better experience using certain GitHub features, since GitHub has some issues when dealing with non-UTF8 encoding ([example](https://github.com/orgs/community/discussions/77064)).
+Probably no, unless you have code comment in a language other than English. You should never have non-ASCII characters in code that is shared outside your computer because those character will appear differently on someone with a machine using a different encoding due to language configurations. Note that non-ASCII characters won't appear correctly one other people's machine using a different encoding either, but at least it won't change the behavior of the program. The only benefit of using `working-tree-encoding` is that you'll have a better experience using certain GitHub features, since GitHub has some issues when dealing with non-UTF8 encoding ([example](https://github.com/orgs/community/discussions/77064)).
 
-In some `gitattributes` file related to VBA (or VB6), you'll see a something like this:
+If you still want to specify the encoding, then it would look like this:
 `*.bas [...] working-tree-encoding=CP1252`
 
-Note that CP1252 is the default file encoding for 
-By specifying the encoding of the 
+In this case, I'm using CP1252 which is the usual Windows code page for Windows OS in North American and Western Europe, but it might differ on your system. To get the number that goes after "cp" on your local machine, you can run the following Powershell command :
+```
+Get-WinSystemLocale | Select-Object @{ n='ANSI Code Page';   e={ $_.TextInfo.AnsiCodePage } }
+```
+[<sup>source</sup>](https://serverfault.com/questions/80635/how-can-i-manually-determine-the-codepage-and-locale-of-the-current-os/836221#836221)
 
 
 
