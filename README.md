@@ -58,8 +58,9 @@ Get-WinSystemLocale | Select-Object @{ n='ANSI Code Page';   e={ $_.TextInfo.Ans
 [<sup>source</sup>](https://serverfault.com/questions/80635/how-can-i-manually-determine-the-codepage-and-locale-of-the-current-os/836221#836221)
 
 
+## Should you specify the `linguist-language` attribute?
 
-Note: Regarding the attribute `linguist-language=vba`, I choose not to include it in those because I believe that GitHub's system to detect if a file is VBA or not is decent and if your files aren't detected as VBA, it might be telling you somethig about your code.
+Regarding the attribute `linguist-language=vba`, I choose not to include it in the suggested template because I believe that GitHub's system to detect if a file is VBA or not is decent and if your files aren't detected as VBA, it might be telling you something about your code.
   - Make sure that your files include the VBE's metadata such as the `Attribute VB_Name = "..."`
   - Use the right file extensions
   - If you `.bas` files doesn't contain any VBA specific syntax, maybe it's OK if is classified as VB6 instead.
