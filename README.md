@@ -9,7 +9,8 @@ This project is here to help you configure your VBA project on GitHub.
 
 ## .gitignore
 
-A template .gitignore file is provided here: https://github.com/DecimalTurn/Using-VBA-on-GitHub/blob/main/gitignore/.gitignore
+A template .gitignore file is provided here: 
+📖 https://github.com/DecimalTurn/Using-VBA-on-GitHub/blob/main/gitignore/.gitignore
 
 ### Explanations
 
