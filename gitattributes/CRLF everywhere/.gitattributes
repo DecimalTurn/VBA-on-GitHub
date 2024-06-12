@@ -1,7 +1,7 @@
 # By default, auto detect text files and perform LF normalization
 * text=auto                 eol=lf
 
-# VBA extensions - Enforce CRLF using a filter
+# VBA extensions - Prevent LF normalization
 *.[bB][aA][sS]              -text diff
 *.[cC][lL][sS]              -text diff
 *.[fF][rR][mM]              -text diff
@@ -10,10 +10,10 @@
 # VBA extensions - Mark as binary
 *.[fF][rR][xX]              binary
                     
-# AutoHotKey - Enforce CRLF using a filter
+# AutoHotKey - Prevent LF normalization
 *.[aA][hH][kK]              -text diff
 
-# Batch scripts - Enforce CRLF using a filter
+# Batch scripts - Prevent LF normalization
 *.[cC][mM][dD]              -text diff
 *.[bB][aA][tT]              -text diff
 
