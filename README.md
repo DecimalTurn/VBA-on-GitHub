@@ -1,5 +1,13 @@
 # Using VBA on GitHub
-This project is here to help you configure your VBA project on GitHub.
+This project is here to help you configure your VBA project on GitHub and discuss related issues.
+
+# Content
+
+- [Why should you include .gitignore and .gitattributes files to your project?](#why-should-you-include-gitignore-and-gitattributes-files-to-your-project)
+- [.gitignore](#gitignore)
+- [.gitattributes](#gitattributes)
+- [Should you include a `.editorconfig` file in your repo?](#should-you-include-a-editorconfig-file-in-your-repo)
+- [.editorconfig](#editorconfig)
 
 # Why should you include .gitignore and .gitattributes files to your project?
 
@@ -78,18 +86,19 @@ Regarding the attribute `linguist-language=vba`, I choose not to include it in t
   - Use the right file extensions
   - If you `.bas` files doesn't contain any VBA specific syntax, maybe it's OK if is classified as VB6 instead.
 
-# Should you include a `.editorconfig` file in your repo?
+# Should you include a .editorconfig file in your repo?
 
 The `.editorconfig` file is used by many popular IDE and text editor to specify the default behavior when dealing with certain text files. If you want to make it easier for people to use other editors than the VBE, you can always include that file in your project.
 
+# .editorconfig
+
 A template .editorconfig file is provided here: 
 
-📖 
-
-
-- Section about .editorcondig? Eg.: https://github.com/DecimalTurn/Excel-Pomodoro-Timer/blob/main/.editorconfig
+📖 https://github.com/DecimalTurn/VBA-on-GitHub/blob/main/editorconfig/.editorconfig
 
 <hr>
+
+**Footnotes**
 
 [1] - [Git - gitattributes Documentation](https://git-scm.com/docs/gitattributes#_text)
 
