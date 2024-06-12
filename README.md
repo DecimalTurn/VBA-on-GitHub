@@ -61,5 +61,4 @@ Note: Regarding the attribute `linguist-language=vba`, I choose not to include i
   - If you `.bas` files doesn't contain any VBA specific syntax, maybe it's OK if is classified as VB6 instead.
 
 # Upcoming sections:
-- git lfs?
 - Section about .editorcondig? Eg.: https://github.com/DecimalTurn/Excel-Pomodoro-Timer/blob/main/.editorconfig
