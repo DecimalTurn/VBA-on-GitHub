@@ -7,12 +7,12 @@ This project is here to help you configure your VBA project on GitHub.
 
 **.gitattributes**: This file will help you make sure that there won't be errors due to Git conversion of your files.
 
-## .gitignore
+# .gitignore
 
 A template .gitignore file is provided here: 
 📖 https://github.com/DecimalTurn/Using-VBA-on-GitHub/blob/main/gitignore/.gitignore
 
-### Explanations
+## Explanations
 
 Luckily for us, the VBE doesn't really create local or temporary files that you don't want to share outside of your computer (unlike for other IDEs like [VScode](https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore)). However, the Office application you are using might create temporary files that remain on the disk as long as the Office document is open to indicate to others that someone is working in the file ([more details](https://superuser.com/questions/405257/what-type-of-file-is-file)).
 
@@ -23,7 +23,7 @@ This is why an exclusion exists for this type of file (starting with ~$):
 
 Sometimes, you'll be working from an actual Office document and only want to share the code as `.bas`, `.frm` and `.frx` files (not the office document itself). In that case, feel free to add extensions for Office documents extensions to your .gitignore file. Some of them are already in the template .gitignore file as commented-out lines. Just remove the "#" at the start of the line to add them back as needed.
 
-#### Weird brackets?
+### Weird brackets?
 You'll notice that the .gitignore (and .gitattributes) files make use of this syntax with brackets to specify file paths:
 eg.
 ```ignore
@@ -32,7 +32,7 @@ eg.
 
 This is because git configurations are case-sensitive: if we don't want to use 2 lines for each file extension (uppercase and lowercase version), we need to take advantage of the [glob pattern syntax](https://en.wikipedia.org/wiki/Glob_(programming)#Syntax) to combine lowercase and uppercase letters into pairs contained in those bracket. It's a bit harder to read, but I'm sure you'll get used to it. 
 
-## .gitattributes
+# .gitattributes
 
 There is 2 ways you can configure your .gitattributes file. Both of them have their pros and cons, but the I would suggest you to use the first method to avoid issues like [this one](https://github.com/VBA-tools/VBA-Dictionary/issues/38) if you project becomes really popular.
 
@@ -43,7 +43,7 @@ There is 2 ways you can configure your .gitattributes file. Both of them have th
 Disclaimer: Converting your files to use UTF-8 and LF line endings means that people that want to download your code might have a problem if they try to download the a raw file with code.
 ![Alt text](./docs/img/ScreenCapDownloadRawFile.png)
 
-### Should you specify the `working-tree-encoding` attribute?
+## Should you specify the `working-tree-encoding` attribute?
 
 TLDR : No, unless you have code comment in a language other than english. You should never have non-ascii characters in code that is shared outside your computer because those character will appear differently on someone with a machine using a different encoding due to language configurations. Note that non-ascii characters won't appear correctly one other people's machine using a different encoding either, but at least it won'T change the behavior of the program. The only benefit of using `working-tree-encoding` is that you'll have a better experience using certain GitHub features, since GitHub has some issues when dealing with non-UTF8 encoding ([example](https://github.com/orgs/community/discussions/77064)).
 
@@ -60,6 +60,6 @@ Note: Regarding the attribute `linguist-language=vba`, I choose not to include i
   - Use the right file extensions
   - If you `.bas` files doesn't contain any VBA specific syntax, maybe it's OK if is classified as VB6 instead.
 
-# Upcoming sections in this README
+# Upcoming sections:
 - git lfs?
 - Section about .editorcondig? Eg.: https://github.com/DecimalTurn/Excel-Pomodoro-Timer/blob/main/.editorconfig
