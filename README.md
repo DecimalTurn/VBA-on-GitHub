@@ -3,7 +3,7 @@ This project is here to help you configure your VBA project on GitHub and discus
 
 # Content
 
-- [Why should you include .gitignore and .gitattributes files to your project?](#why-should-you-include-gitignore-and-gitattributes-files-to-your-project)
+- [Why should you include `.gitignore` and `.gitattributes` files to your project?](#why-should-you-include-gitignore-and-gitattributes-files-to-your-project)
 - [.gitignore](#gitignore)
 - [.gitattributes](#gitattributes)
 - [Should you include a `.editorconfig` file in your repo?](#should-you-include-a-editorconfig-file-in-your-repo)
