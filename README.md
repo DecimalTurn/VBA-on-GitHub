@@ -3,7 +3,7 @@ This project is here to help you configure your VBA project on GitHub.
 
 # Why should you include .gitignore and .gitattributes files to your project?
 
-**.gitignore**: This file is there to help Git determine what files it should ignore when commiting changes to the project. It will allow you to avoid uploading content that you don't want to or that you don't need to.
+**.gitignore**: This file is there to help Git determine what files it should ignore when committing changes to the project. It will allow you to avoid uploading content that you don't want to or that you don't need to.
 
 **.gitattributes**: This file will help you make sure that there won't be errors due to Git conversion of your files.
 
@@ -15,12 +15,12 @@ A template .gitignore file is provided here: https://github.com/DecimalTurn/Usin
 
 Luckily for us, the VBE doesn't really create local or temporary files that you don't want to share outside of your computer (unlike for other IDEs like [VScode](https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore)). However, the Office application you are using might create temporary files that remain on the disk as long as the Office document is open to indicate to others that someone is working in the file ([more details](https://superuser.com/questions/405257/what-type-of-file-is-file)).
 
-This is why an exclusion exists for this type of files (starting with ~$):
+This is why an exclusion exists for this type of file (starting with ~$):
 ```
 ~$*
 ```
 
-Sometimes, you'll be working from an actual Office document and only want to share the code as .bas, .frm and .frx files (not the office document itself). In that case, feel free to add extensions for Office documents extensions to your .gitignore file. Some of them are already in the template .gitignore file as commented-out lines. Just remove the "#" to add them back as needed.
+Sometimes, you'll be working from an actual Office document and only want to share the code as `.bas`, `.frm` and `.frx` files (not the office document itself). In that case, feel free to add extensions for Office documents extensions to your .gitignore file. Some of them are already in the template .gitignore file as commented-out lines. Just remove the "#" at the start of the line to add them back as needed.
 
 #### Weird brackets?
 You'll notice that the .gitignore (and .gitattributes) files make use of this syntax with brackets to specify file paths:
@@ -45,8 +45,8 @@ Disclaimer: Converting your files to use UTF-8 and LF line endings means that pe
 Note: Regarding the attribute `linguist-language=vba`, I choose not to include it in those because I believe that GitHub's system to detect if a file is VBA or not is decent and if your files aren't detected as VBA, it might be telling you somethig about your code.
   - Make sure that your files include the VBE's metadata such as the `Attribute VB_Name = "..."`
   - Use the right file extensions
-  - If you .bas files doesn't contain any VBA specific syntax, maybe it's OK if is classified as VB6 instead.
+  - If you `.bas` files doesn't contain any VBA specific syntax, maybe it's OK if is classified as VB6 instead.
 
 # Upcoming sections in this README
 - git lfs?
-- Section about .editorcondig? https://github.com/DecimalTurn/Excel-Pomodoro-Timer/blob/main/.editorconfig
+- Section about .editorcondig? Eg.: https://github.com/DecimalTurn/Excel-Pomodoro-Timer/blob/main/.editorconfig
