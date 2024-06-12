@@ -49,6 +49,10 @@ Now, you'll first notice the use of `* text=auto eol=lf` in the template. The fi
 
 The second part (`eol=lf`) tells Git to perform line conversion to LF during on checkout. Since LF is usually recognized as the default now, this is a good practice. The remaining lines in the .gitattributes file are then there to deal with the exceptions to this rule.
 
+### Why prevent LF normalization for VBA code?
+
+The VBE's heyday was in the 90s. Back then, Windows was running on CRLF and there was no intentions of supporting that competing LF standard. Windows has now moved on and even Notepad now supports LF, but the VBE has not sadly. This means that the VBE expects files to use CRLF and if you try to import a VBA code file with LF, you'll experience weird bugs such as the one described [here](https://github.com/VBA-tools/VBA-Dictionary/issues/38). For that reason, the recommended template .gitattributes file in this repo prevents Git from performing LF normalization on files using CRLF (that you've likely exported from the VBE).
+
 ### Does the use of `-text` affect how Git performs diffs?
 
 The short answer is no, this won't affect how Git performs diffs, the text attribute is only there to determine if Git will perform line endings conversion, the diff attribute is there to determine how diffs are performed. Note that setting the `binary` atribute is equivalent to doing `-text -diff` (it is a [macro attribute](https://git-scm.com/docs/gitattributes#_using_macro_attributes)).
