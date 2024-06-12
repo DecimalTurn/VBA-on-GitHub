@@ -78,7 +78,15 @@ Regarding the attribute `linguist-language=vba`, I choose not to include it in t
   - Use the right file extensions
   - If you `.bas` files doesn't contain any VBA specific syntax, maybe it's OK if is classified as VB6 instead.
 
-# Upcoming sections:
+# Should you include a `.editorconfig` file in your repo?
+
+The `.editorconfig` file is used by many popular IDE and text editor to specify the default behavior when dealing with certain text files. If you want to make it easier for people to use other editors than the VBE, you can always include that file in your project.
+
+A template .editorconfig file is provided here: 
+
+📖 
+
+
 - Section about .editorcondig? Eg.: https://github.com/DecimalTurn/Excel-Pomodoro-Timer/blob/main/.editorconfig
 
 <hr>
