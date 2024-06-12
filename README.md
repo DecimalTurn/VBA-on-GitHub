@@ -42,6 +42,18 @@ There is 2 ways you can configure your .gitattributes file. Both of them have th
 Disclaimer: Converting your files to use UTF-8 and LF line endings means that people that want to download your code might have a problem if they try to download the a raw file with code.
 ![Alt text](./docs/img/ScreenCapDownloadRawFile.png)
 
+### Should you specify the `working-tree-encoding` attribute?
+
+TLDR : No, unless you have code comment in a language other than english. You should never have non-ascii characters in code that is shared outside your computer because those character will appear differently on someone with a machine using a different encoding due to language configurations. Note that non-ascii characters won't appear correctly one other people's machine using a different encoding either, but at least it won'T change the behavior of the program. The only benefit of using `working-tree-encoding` is that you'll have a better experience using certain GitHub features, since GitHub has some issues when dealing with non-UTF8 encoding ([example](https://github.com/orgs/community/discussions/77064)).
+
+In some `gitattributes` file related to VBA (or VB6), you'll see a something like this:
+`*.bas [...] working-tree-encoding=CP1252`
+
+Note that CP1252 is the default file encoding for 
+By specifying the encoding of the 
+
+
+
 Note: Regarding the attribute `linguist-language=vba`, I choose not to include it in those because I believe that GitHub's system to detect if a file is VBA or not is decent and if your files aren't detected as VBA, it might be telling you somethig about your code.
   - Make sure that your files include the VBE's metadata such as the `Attribute VB_Name = "..."`
   - Use the right file extensions
