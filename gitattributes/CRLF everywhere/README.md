@@ -1,1 +1,1 @@
-Recommended default configaturation for a .gitattrbutes file in a VBA project.
+Recommended default configuration for a .gitattrbutes file in a VBA project.
