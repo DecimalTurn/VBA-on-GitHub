@@ -65,7 +65,7 @@ The VBE's heyday was in the 90s. Back then, Windows was running on CRLF and ther
 
 The short answer is no, this won't affect how Git performs diffs, the text attribute is only there to determine if Git will perform line endings conversion, the diff attribute is there to determine how diffs are performed. Note that setting the `binary` atribute is equivalent to doing `-text -diff` (it is a [macro attribute](https://git-scm.com/docs/gitattributes#_using_macro_attributes)).
 
-## Should you specify the `working-tree-encoding` attribute?
+### Should you specify the `working-tree-encoding` attribute?
 
 Probably no, unless you have code comment in a language other than English. You should never have non-ASCII characters in code that is shared outside your computer because those characters will appear differently on someone with a machine using a different encoding due to language configurations. Note that non-ASCII characters won't appear correctly one other people's machine using a different encoding either, but at least it won't change the behavior of the program. The only benefit of using `working-tree-encoding` is that you'll have a better experience using certain GitHub features, since GitHub has some issues when dealing with non-UTF8 encoding ([example](https://github.com/orgs/community/discussions/77064)).
 
