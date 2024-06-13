@@ -59,7 +59,7 @@ The second part (`eol=lf`) tells Git to perform line conversion to LF during on 
 
 ### Why prevent LF normalization for VBA code?
 
-The VBE's heyday was in the 90s. Back then, Windows was running on CRLF and there was no intentions of supporting that competing LF standard. Windows has now moved on and even Notepad now supports LF, but the VBE has not sadly. This means that the VBE expects files to use CRLF and if you try to import a VBA code file with LF, you'll experience weird bugs such as the one described [here](https://github.com/VBA-tools/VBA-Dictionary/issues/38). For that reason, the recommended template .gitattributes file in this repo prevents Git from performing LF normalization on files using CRLF (that you've likely exported from the VBE).
+The VBE's heyday was in the 90s. Back then, Windows was running on CRLF and there was no intentions of supporting that competing LF standard. Windows has now moved on and even Notepad now supports LF, but the VBE has not sadly. This means that the VBE expects files to use CRLF and if you try to import a VBA code file with LF, you'll experience weird bugs such as the one described [here](https://github.com/VBA-tools/VBA-Dictionary/issues/38), [here](https://github.com/VBA-tools/VBA-JSON/issues/265) or [here](https://www.reddit.com/r/vba/comments/1ddpvtb/comment/l875ps5/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button). For that reason, the recommended template .gitattributes file in this repo prevents Git from performing LF normalization on files using CRLF (that you've likely exported from the VBE).
 
 ### Does the use of `-text` affect how Git performs diffs?
 
