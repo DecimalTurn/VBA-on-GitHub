@@ -7,7 +7,9 @@ root = true
 indent_style = space
 indent_size = 4
 end_of_line = crlf
-# charset = windows-1252
+# https://github.com/editorconfig/editorconfig/issues/209#issuecomment-445241830
+  # charset = windows-1252
+  # charset = us-ascii
 # https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/line-too-long
 max_line_length = 1023
 insert_final_newline = true
