@@ -47,7 +47,7 @@ A template .gitattributes file is provided here:
 
 📖 https://github.com/DecimalTurn/VBA-on-GitHub/blob/main/gitattributes/CRLF%20everywhere/.gitattributes
 
-This template will make sure that Git doesn't touch your VBA code files. It won't perform any line endings or text encoding conversions.
+This template will make sure that Git doesn't perform any line endings or text encoding conversions.
 
 ## Explanations
 
