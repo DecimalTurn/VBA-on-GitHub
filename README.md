@@ -59,18 +59,33 @@ The second part (`eol=lf`) tells Git to perform line conversion to LF during on 
 
 ### Why prevent LF normalization for VBA code?
 
-The VBE's heyday was in the 90s. Back then, Windows was running on CRLF and there was no intentions of supporting that competing LF standard. Windows has now moved on and even Notepad now supports LF, but the VBE has not sadly. This means that the VBE expects files to use CRLF and if you try to import a VBA code file with LF, you'll experience weird bugs such as the one described [here](https://github.com/VBA-tools/VBA-Dictionary/issues/5), [here](https://github.com/VBA-tools/VBA-Dictionary/issues/12), [here](https://github.com/VBA-tools/VBA-Dictionary/issues/38), [here](https://github.com/VBA-tools/VBA-JSON/issues/265) or [here](https://www.reddit.com/r/vba/comments/1ddpvtb/comment/l875ps5/). For that reason, the recommended template .gitattributes file in this repo prevents Git from performing LF normalization on files using CRLF (that you've likely exported from the VBE).
+The VBE's heyday was in the 90s. Back then, Windows was running on CRLF and there was no intentions of supporting that competing LF standard. Windows has now moved on and even Notepad supports LF nowadays, but the VBE does not sadly. 
+
+This means that the VBE expects files to use CRLF and if you try to import a VBA code file with LF, you'll experience weird bugs such as the one described [here](https://github.com/VBA-tools/VBA-Dictionary/issues/5), [here](https://github.com/VBA-tools/VBA-Dictionary/issues/12), [here](https://github.com/VBA-tools/VBA-Dictionary/issues/38), [here](https://github.com/VBA-tools/VBA-JSON/issues/265) or [here](https://www.reddit.com/r/vba/comments/1ddpvtb/comment/l875ps5/). For that reason, the recommended template .gitattributes file in this repo prevents Git from performing LF normalization on files using CRLF (that you've likely exported from the VBE).
 
 ### Does the use of `-text` affect how Git performs diffs?
 
-The short answer is no, this won't affect how Git performs diffs, the text attribute is only there to determine if Git will perform line endings conversion, the diff attribute is there to determine how diffs are performed. Note that setting the `binary` atribute is equivalent to doing `-text -diff` (it is a [macro attribute](https://git-scm.com/docs/gitattributes#_using_macro_attributes)).
+The short answer is no, this won't affect how Git performs diffs.
+
+The [`text` attribute](https://git-scm.com/docs/gitattributes#_text) is only there to determine if Git will perform line endings conversion, the [`diff` attribute](https://git-scm.com/docs/gitattributes#_generating_diff_text) is the one to determine how diffs are performed. 
+
+`-text` is not equivalent to the `binary` attribute. The `binary` attribute is a [macro attribute](https://git-scm.com/docs/gitattributes#_using_macro_attributes) equivalent to `-text -diff -merge`. Setting the `binary` attribute will indeed prevent diffs from being performed.
 
 ### Should you specify the `working-tree-encoding` attribute?
 
-Probably no, unless you have code comment in a language other than English. You should never have non-ASCII characters in code that is shared outside your computer because those characters will appear differently on someone with a machine using a different encoding due to language configurations. Note that non-ASCII characters won't appear correctly one other people's machine using a different encoding either, but at least it won't change the behavior of the program. The only benefit of using `working-tree-encoding` is that you'll have a better experience using certain GitHub features, since GitHub has some issues when dealing with non-UTF8 encoding ([example](https://github.com/orgs/community/discussions/77064)).
+Probably no, unless you have code comments in a language other than English.
 
-If you still want to specify the encoding, then it would look like this:
-`*.bas [...] working-tree-encoding=CP1252`
+You should avoid non-ASCII characters in code that will run or will be shared outside your computer because those characters will appear differently on someone with a machine using a different encoding due to language configurations. This is especially important for text inside quotes because that will actually change the behavior of your code!
+
+If you do have non-ASCII characters in your comments, a benefit of using `working-tree-encoding` is that people will have a better experience interacting with your code on GitHub. Indeed, GitHub has some issues when dealing with non-UTF8 encoding ([example](https://github.com/orgs/community/discussions/77064)).
+
+<details>
+<summary>How to specify the working-tree-encoding?</summary>
+
+To specify the encoding, you'd need to specify something like this:
+```
+*.bas -text diff working-tree-encoding=CP1252
+```
 
 In this case, I'm using CP1252 which is the usual Windows code page for Windows OS in North American and Western Europe, but it might differ on your system. To get the number that goes after "cp" on your local machine, you can run the following Powershell command :
 ```
@@ -78,6 +93,7 @@ Get-WinSystemLocale | Select-Object @{ n='ANSI Code Page';   e={ $_.TextInfo.Ans
 ```
 [<sup>source</sup>](https://serverfault.com/questions/80635/how-can-i-manually-determine-the-codepage-and-locale-of-the-current-os/836221#836221)
 
+</details>
 
 ## Should you specify the `linguist-language` attribute?
 
