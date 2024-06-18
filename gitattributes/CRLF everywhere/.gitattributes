@@ -1,17 +1,50 @@
-# By default, auto detect text files and perform LF normalization
-* text=auto                 eol=lf
+# Don't perform any line ending conversions by default
 
-# VBA extensions - Prevent LF normalization
+# VBA extensions - Prevent LF normalization (bas, cls, frm, vba)
 *.[bB][aA][sS]              -text diff
 *.[cC][lL][sS]              -text diff
 *.[fF][rR][mM]              -text diff
 *.[vV][bB][aA]              -text diff
 
-# VBA extensions - Mark as binary
+# VBA extensions - Mark as binary (frm)
 *.[fF][rR][xX]              binary
-                    
-# AutoHotKey - Prevent LF normalization
-*.[aA][hH][kK]              -text diff
+
+############################################################################
+# Other languages in the VB family 
+############################################################################
+
+# VBS extensions - Prevent LF normalization (vbs)
+*.[vV][bB][sS]              -text diff
+
+# VB6 extensions - Prevent LF normalization (ctl, dsr, dob, pag, vbg, vbl, vbp, vbr, vbw)
+*.[cC][tT][lL]              -text diff
+*.[dD][sS][rR]              -text diff
+*.[dD][oO][bB]              -text diff
+*.[pP][aA][gG]              -text diff
+*.[vV][bB][gB]              -text diff
+*.[vV][bB][lL]              -text diff
+*.[vV][bB][pP]              -text diff
+*.[vV][bB][rR]              -text diff
+*.[vV][bB][wW]              -text diff
+
+# VB6 extensions - Mark as binary (ctx, dox, pgx)
+*.[cC][tT][xX]              binary
+*.[dD][oO][xX]              binary
+*.[pP][gG][xX]              binary
+
+# twinBASIC extensions  - Prevent LF normalization (twin, tbform)
+*.[tT][wW][iI][nN]          -text diff
+*.[tT][bB][fF][oO][rR][mM]  -text diff
+
+# twinBASIC extensions  - Mark as binary
+*.[tT][wW][iI][nN][pP][rR][oO][jJ]  binary
+
+############################################################################
+# Other Windows-specific extensions
+############################################################################
+
+# INI file extensions  - Prevent LF normalization
+*.[iI][nN][iI]              -text diff
 
 # Batch scripts - Prevent LF normalization
 *.[cC][mM][dD]              -text diff
@@ -29,7 +62,8 @@
 *.[xX][lL][sS][mM]          binary
 *.[xX][lL][sS][xX]          binary
 
-# Word documents (doc and docx)
+# Word documents (rtf, doc and docx)
+*.[rR][tT][fF]              diff=astextplain
 *.[dD][oO][cC]              diff=astextplain
 *.[dD][oO][cC][xX]          diff=astextplain
 
@@ -59,4 +93,3 @@
 
 # Other
 *.[pP][dD][fF]              diff=astextplain
-

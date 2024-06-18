@@ -1,6 +1,6 @@
 # This .gitattributes file is configured to fight against Git to keep CRLF inside the index. 
 
-# Important: This fie makes use of the a filter named "crlf". This filter users the unix2dos command that is included with Git for Windows (and most Unix distributions).
+# Important: This file makes use of the a filter named "crlf". This filter uses the unix2dos command that is included with Git for Windows (and most Unix distributions).
 # To make sure this filter is active, you have 2 options (A or B): 
 # A) 
 # - Run the following command at the root of your Git repository: git config --add filter.crlf.clean unix2dos
@@ -9,24 +9,54 @@
 #   (The reason why we need the ".." is to move one folder up because the config file is located in the .git subfolder.)
 # - Then make sure that you have a file named .gitconfig in your Git repository like this file: https://github.com/DecimalTurn/VBA-on-GitHub/blob/main/gitattributes/Force%20CRLF%20everywhere%20with%20filters/.gitconfig
 
-# By default, auto detect text files and perform LF normalization
-* text=auto                 eol=lf
-
 # VBA extensions - Enforce CRLF using a filter
-*.[bB][aA][sS]              filter=crlf -text
-*.[cC][lL][sS]              filter=crlf -text
-*.[fF][rR][mM]              filter=crlf -text
-*.[vV][bB][aA]              filter=crlf -text
+*.[bB][aA][sS]              filter=crlf -text diff
+*.[cC][lL][sS]              filter=crlf -text diff
+*.[fF][rR][mM]              filter=crlf -text diff
+*.[vV][bB][aA]              filter=crlf -text diff
 
 # VBA extensions - Mark as binary
 *.[fF][rR][xX]              binary
-                    
-# AutoHotKey - Enforce CRLF using a filter
-*.[aA][hH][kK]              filter=crlf -text
+############################################################################
+# Other languages in the VB family 
+############################################################################
 
-# Batch scripts - Enforce CRLF using a filter
-*.[cC][mM][dD]              filter=crlf -text
-*.[bB][aA][tT]              filter=crlf -text
+# VBS extensions - Prevent LF normalization (vbs)
+*.[vV][bB][sS]              filter=crlf -text diff
+
+# VB6 extensions - Prevent LF normalization (ctl, dsr, dob, pag, vbg, vbl, vbp, vbr, vbw)
+*.[cC][tT][lL]              filter=crlf -text diff
+*.[dD][sS][rR]              filter=crlf -text diff
+*.[dD][oO][bB]              filter=crlf -text diff
+*.[pP][aA][gG]              filter=crlf -text diff
+*.[vV][bB][gB]              filter=crlf -text diff
+*.[vV][bB][lL]              filter=crlf -text diff
+*.[vV][bB][pP]              filter=crlf -text diff
+*.[vV][bB][rR]              filter=crlf -text diff
+*.[vV][bB][wW]              filter=crlf -text diff
+
+# VB6 extensions - Mark as binary (ctx, dox, pgx)
+*.[cC][tT][xX]              binary
+*.[dD][oO][xX]              binary
+*.[pP][gG][xX]              binary
+
+# twinBASIC extensions  - Prevent LF normalization (twin, tbform)
+*.[tT][wW][iI][nN]          filter=crlf -text diff
+*.[tT][bB][fF][oO][rR][mM]  filter=crlf -text diff
+
+# twinBASIC extensions  - Mark as binary
+*.[tT][wW][iI][nN][pP][rR][oO][jJ]  binary
+
+############################################################################
+# Other Windows-specific extensions
+############################################################################
+
+# INI file extensions  - Prevent LF normalization
+*.[iI][nN][iI]              filter=crlf -text diff
+
+# Batch scripts - Prevent LF normalization
+*.[cC][mM][dD]              filter=crlf -text diff
+*.[bB][aA][tT]              filter=crlf -text diff
 
 ############################################################################
 # Optional Sections
@@ -40,7 +70,8 @@
 *.[xX][lL][sS][mM]          binary
 *.[xX][lL][sS][xX]          binary
 
-# Word documents (doc and docx)
+# Word documents (rtf, doc and docx)
+*.[rR][tT][fF]              diff=astextplain
 *.[dD][oO][cC]              diff=astextplain
 *.[dD][oO][cC][xX]          diff=astextplain
 
@@ -70,4 +101,3 @@
 
 # Other
 *.[pP][dD][fF]              diff=astextplain
-
