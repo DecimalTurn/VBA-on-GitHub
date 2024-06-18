@@ -6,7 +6,7 @@ This project is here to help you configure your VBA project on GitHub and discus
 - [Why should you include `.gitignore` and `.gitattributes` files to your project?](#why-should-you-include-gitignore-and-gitattributes-files-to-your-project)
 - [.gitignore](#gitignore)
 - [.gitattributes](#gitattributes)
-- [Should you include a `.editorconfig` file in your repo?](#should-you-include-a-editorconfig-file-in-your-repo)
+- [Should you include a `.editorconfig` file in your repository?](#should-you-include-a-editorconfig-file-in-your-repository)
 - [.editorconfig](#editorconfig)
 
 # Why should you include .gitignore and .gitattributes files to your project?
@@ -53,15 +53,23 @@ This template will make sure that Git doesn't perform any line endings or text e
 
 If you need a refresher or you've never had to think about how line endings work, I'd suggest having a look at the introduction of [this article](https://www.hanselman.com/blog/carriage-returns-and-line-feeds-will-ultimately-bite-you-some-git-tips) by Scott Hanselman. It will explain the origin of this CRLF vs LF issue.
 
-Now, you'll first notice the use of `* text=auto eol=lf` in the template. The first part (`* text=auto`) is to let Git decide automatically for all files (`*`) if the `text` attribute should be "set" (aka. true) or "unset" (aka. false). Having the `text` attribute set "enables end-of-line conversion: When a matching file is added to the index, the file's line endings are normalized to LF in the index." <sup>1</sup>. Usually, Git is pretty good at determining if a file is a text or binary file, but it's important to place the `* text=auto` line at the top, so that the lines that come after can override this behavior when we need it to<sup>2</sup>.
+When creating a `.gitattributes`, a common practice is to include `* text=auto` at the top of your file. This can be useful for certain cross-platform projects, but it's not really useful for VBA projects and it can even be a problem if that's the only entry you have in your `.gitattributes` file.
 
-The second part (`eol=lf`) tells Git to perform line conversion to LF during on checkout. Since LF is usually recognized as the default now, this is a good practice. The remaining lines in the .gitattributes file are then there to deal with the exceptions to this rule.
+`* text=auto` is normally to let Git decide automatically for all files (`*`) if the `text` attribute should be "set" (aka. true) or "unset" (aka. false). Having the `text` attribute set "enables end-of-line conversion: When a matching file is added to the index, the file's line endings are normalized to LF in the index." <sup>1</sup>. Usually, Git is pretty good at determining if a file is a text or binary file, but it's important to place that line at the top, so that the lines that come after can override this behavior when we need it to<sup>2</sup>.
+
+In the suggested template, we don't include `* text=auto` because having this as the default for all file types requires you to be careful to override every case where you don't want that behavior. All that without seeing much benefit. Feel free to add it if you prefer, but make sure to include the other entries in the `.gitattributes` template file as they will deal with the exceptions to this rule.
 
 ### Why prevent LF normalization for VBA code?
 
-The VBE's heyday was in the 90s. Back then, Windows was running on CRLF and there was no intentions of supporting that competing LF standard. Windows has now moved on and even Notepad supports LF nowadays, but the VBE does not sadly. 
+The VBE's heyday was in the 90s. Back then, Windows was running on CRLF and there were no intentions of supporting that competing LF standard. Windows has now moved on and even Notepad supports LF nowadays, but the VBE does not sadly.
 
-This means that the VBE expects files to use CRLF and if you try to import a VBA code file with LF, you'll experience weird bugs such as the one described [here](https://github.com/VBA-tools/VBA-Dictionary/issues/5), [here](https://github.com/VBA-tools/VBA-Dictionary/issues/12), [here](https://github.com/VBA-tools/VBA-Dictionary/issues/38), [here](https://github.com/VBA-tools/VBA-JSON/issues/265) or [here](https://www.reddit.com/r/vba/comments/1ddpvtb/comment/l875ps5/). For that reason, the recommended template .gitattributes file in this repo prevents Git from performing LF normalization on files using CRLF (that you've likely exported from the VBE).
+This means that the VBE expects files to use CRLF and if you try to import a VBA code file with LF, you'll experience weird bugs such as the one described [here](https://github.com/VBA-tools/VBA-Dictionary/issues/5), [here](https://github.com/VBA-tools/VBA-Dictionary/issues/12), [here](https://github.com/VBA-tools/VBA-Dictionary/issues/38), [here](https://github.com/VBA-tools/VBA-JSON/issues/265) or [here](https://www.reddit.com/r/vba/comments/1ddpvtb/comment/l875ps5/). For that reason, the recommended template `.gitattributes` file in this repository prevents Git from performing LF normalization on VBA code files (that you've likely exported from the VBE).
+
+All the issues mentioned in the previous paragraph have a common cause: People tried to download a single VBA code file, but GitHub gave them the "raw" file. The file they got was taken from inside the repository without any normalization back to CRLF. This normalization is taken care of when you clone or downloading the repository as a `.zip` file. In the end, if we don't want new comers to face any of theses issues, the simplest option is to prevent all line normalization like what is suggested here.
+
+### What about VBA projects with macOS support?
+
+Even if your VBA project has support for macOs, the Mac version of the VBE still expects the code files that it imports to use CRLF.
 
 ### Does the use of `-text` affect how Git performs diffs?
 
@@ -97,12 +105,12 @@ Get-WinSystemLocale | Select-Object @{ n='ANSI Code Page';   e={ $_.TextInfo.Ans
 
 ## Should you specify the `linguist-language` attribute?
 
-Regarding the attribute `linguist-language=vba`, I choose not to include it in the suggested template because I believe that GitHub's system to detect if a file is VBA or not is decent and if your files aren't detected as VBA, it might be telling you something about your code.
+Regarding the attribute `linguist-language=vba`, I choose not to include it in the suggested template because I believe that GitHub's system to detect if a file is VBA or not is decent enough and if your files aren't detected as VBA, it might be telling you something about your code.
   - Make sure that your files include the VBE's metadata such as the `Attribute VB_Name = "..."`
   - Use the right file extensions
   - If you `.bas` files doesn't contain any VBA specific syntax, maybe it's OK if is classified as VB6 instead.
 
-# Should you include a .editorconfig file in your repo?
+# Should you include a .editorconfig file in your repository?
 
 The `.editorconfig` file is used by many popular IDE and text editor to specify the default behavior when dealing with certain text files. If you want to make it easier for people to use other editors than the VBE, you can always include that file in your project.
 
