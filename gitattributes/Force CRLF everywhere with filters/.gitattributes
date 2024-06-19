@@ -44,7 +44,7 @@
 *.[tT][wW][iI][nN]          filter=crlf -text diff linguist-language=VBA
 *.[tT][bB][fF][oO][rR][mM]  filter=crlf -text diff linguist-language=JSON
 
-# twinBASIC project extension - Mark as binary (twinproject) 
+# twinBASIC project extension - Mark as binary (twinproj) 
 *.[tT][wW][iI][nN][pP][rR][oO][jJ]  binary
 
 ############################################################################
