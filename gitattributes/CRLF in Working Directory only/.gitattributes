@@ -37,7 +37,7 @@
 *.[tT][wW][iI][nN]          text eol=crlf linguist-language=VBA
 *.[tT][bB][fF][oO][rR][mM]  text eol=crlf linguist-language=JSON
 
-# twinBASIC project extensions  - Mark as binary (twinproj)
+# twinBASIC project extension  - Mark as binary (twinproj)
 *.[tT][wW][iI][nN][pP][rR][oO][jJ]  binary
 
 ############################################################################
