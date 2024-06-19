@@ -33,18 +33,18 @@
 *.[dD][oO][xX]              binary
 *.[pP][gG][xX]              binary
 
-# twinBASIC sources extensions  - Prevent LF normalization (twin, tbform)
+# twinBASIC sources extensions - Prevent LF normalization (twin, tbform)
 *.[tT][wW][iI][nN]          text eol=crlf linguist-language=VBA
 *.[tT][bB][fF][oO][rR][mM]  text eol=crlf linguist-language=JSON
 
-# twinBASIC project extension  - Mark as binary (twinproj)
+# twinBASIC project extension - Mark as binary (twinproj)
 *.[tT][wW][iI][nN][pP][rR][oO][jJ]  binary
 
 ############################################################################
 # Other Windows-specific extensions
 ############################################################################
 
-# INI file extensions  - Prevent LF normalization (ini)
+# INI file extensions - Prevent LF normalization (ini)
 *.[iI][nN][iI]              text eol=crlf
 
 # Batch scripts - Prevent LF normalization (cmd, bat)
