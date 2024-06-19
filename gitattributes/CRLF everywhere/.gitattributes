@@ -36,7 +36,7 @@
 *.[tT][wW][iI][nN]          -text diff linguist-language=VBA
 *.[tT][bB][fF][oO][rR][mM]  -text diff linguist-language=JSON
 
-# twinBASIC project extension (twinproject)  - Mark as binary
+# twinBASIC project extension - Mark as binary (twinproject)
 *.[tT][wW][iI][nN][pP][rR][oO][jJ]  binary
 
 ############################################################################
