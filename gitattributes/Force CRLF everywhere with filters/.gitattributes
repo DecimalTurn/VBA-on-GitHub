@@ -1,3 +1,5 @@
+# Template from: https://github.com/DecimalTurn/VBA-on-GitHub
+
 # This .gitattributes file is configured to fight against Git to keep CRLF inside the index. 
 
 # Important: This file makes use of the a filter named "crlf". This filter uses the unix2dos command that is included with Git for Windows (and most Unix distributions).
@@ -17,6 +19,7 @@
 
 # VBA extensions - Mark as binary (frx)
 *.[fF][rR][xX]              binary
+
 ############################################################################
 # Other languages in the VB family 
 ############################################################################

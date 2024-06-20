@@ -1,3 +1,5 @@
+# Template from: https://github.com/DecimalTurn/VBA-on-GitHub
+
 # Don't perform any line ending conversions by default
 
 # VBA extensions - Prevent LF normalization (bas, cls, frm, vba)
