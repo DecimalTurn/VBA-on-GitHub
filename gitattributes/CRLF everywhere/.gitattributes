@@ -32,21 +32,21 @@
 *.[dD][oO][xX]              binary
 *.[pP][gG][xX]              binary
 
-# twinBASIC extensions  - Prevent LF normalization (twin, tbform)
-*.[tT][wW][iI][nN]          -text diff
-*.[tT][bB][fF][oO][rR][mM]  -text diff
+# twinBASIC sources extensions - Prevent LF normalization (twin, tbform)
+*.[tT][wW][iI][nN]          -text diff linguist-language=VB6
+*.[tT][bB][fF][oO][rR][mM]  -text diff linguist-language=JSON
 
-# twinBASIC extensions  - Mark as binary
+# twinBASIC project extension - Mark as binary (twinproj)
 *.[tT][wW][iI][nN][pP][rR][oO][jJ]  binary
 
 ############################################################################
 # Other Windows-specific extensions
 ############################################################################
 
-# INI file extensions  - Prevent LF normalization
+# INI file extensions - Prevent LF normalization (ini)
 *.[iI][nN][iI]              -text diff
 
-# Batch scripts - Prevent LF normalization
+# Batch scripts - Prevent LF normalization (cmd, bat)
 *.[cC][mM][dD]              -text diff
 *.[bB][aA][tT]              -text diff
 
@@ -74,22 +74,22 @@
 # Access documents (accdb)
 *.[aA][cC][cC][dD][bB]      binary
 
-# Images            
+# Images (jpg, png, bmp, gif, ico)           
 *.[jJ][pP][gG]              binary
 *.[pP][nN][gG]              binary
 *.[bB][mM][pP]              binary
 *.[gG][iI][fF]              binary
 *.[iI][cC][oO]              binary
 
-# Compressed files
+# Compressed files (zip, cab, 7z, gz)
 *.[zZ][iI][pP]              binary
 *.[cC][aA][bB]              binary
 *.[7][zZ]                   binary
 *.[gG][zZ]                  binary
 
-# Executables
+# Executables (exe, dll)
 *.[eE][xX][eE]              binary
 *.[dD][lL][lL]              binary
 
-# Other
+# Other (pdf)
 *.[pP][dD][fF]              diff=astextplain

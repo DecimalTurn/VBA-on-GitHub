@@ -9,13 +9,13 @@
 #   (The reason why we need the ".." is to move one folder up because the config file is located in the .git subfolder.)
 # - Then make sure that you have a file named .gitconfig in your Git repository like this file: https://github.com/DecimalTurn/VBA-on-GitHub/blob/main/gitattributes/Force%20CRLF%20everywhere%20with%20filters/.gitconfig
 
-# VBA extensions - Enforce CRLF using a filter
+# VBA extensions - Enforce CRLF using a filter (bas, cls, frm, vba)
 *.[bB][aA][sS]              filter=crlf -text diff
 *.[cC][lL][sS]              filter=crlf -text diff
 *.[fF][rR][mM]              filter=crlf -text diff
 *.[vV][bB][aA]              filter=crlf -text diff
 
-# VBA extensions - Mark as binary
+# VBA extensions - Mark as binary (frx)
 *.[fF][rR][xX]              binary
 ############################################################################
 # Other languages in the VB family 
@@ -40,21 +40,21 @@
 *.[dD][oO][xX]              binary
 *.[pP][gG][xX]              binary
 
-# twinBASIC extensions  - Prevent LF normalization (twin, tbform)
-*.[tT][wW][iI][nN]          filter=crlf -text diff
-*.[tT][bB][fF][oO][rR][mM]  filter=crlf -text diff
+# twinBASIC sources extensions - Prevent LF normalization (twin, tbform)
+*.[tT][wW][iI][nN]          filter=crlf -text diff linguist-language=VB6
+*.[tT][bB][fF][oO][rR][mM]  filter=crlf -text diff linguist-language=JSON
 
-# twinBASIC extensions  - Mark as binary
+# twinBASIC project extension - Mark as binary (twinproj) 
 *.[tT][wW][iI][nN][pP][rR][oO][jJ]  binary
 
 ############################################################################
 # Other Windows-specific extensions
 ############################################################################
 
-# INI file extensions  - Prevent LF normalization
+# INI file extensions - Prevent LF normalization (ini)
 *.[iI][nN][iI]              filter=crlf -text diff
 
-# Batch scripts - Prevent LF normalization
+# Batch scripts - Prevent LF normalization (cmd, bat)
 *.[cC][mM][dD]              filter=crlf -text diff
 *.[bB][aA][tT]              filter=crlf -text diff
 
@@ -82,22 +82,22 @@
 # Access documents (accdb)
 *.[aA][cC][cC][dD][bB]      binary
 
-# Images            
+# Images (jpg, png, bmp, gif, ico)            
 *.[jJ][pP][gG]              binary
 *.[pP][nN][gG]              binary
 *.[bB][mM][pP]              binary
 *.[gG][iI][fF]              binary
 *.[iI][cC][oO]              binary
 
-# Compressed files
+# Compressed files (zip, cab, 7z, gz)
 *.[zZ][iI][pP]              binary
 *.[cC][aA][bB]              binary
 *.[7][zZ]                   binary
 *.[gG][zZ]                  binary
 
-# Executables
+# Executables (exe, dll)
 *.[eE][xX][eE]              binary
 *.[dD][lL][lL]              binary
 
-# Other
+# Other (pdf)
 *.[pP][dD][fF]              diff=astextplain
