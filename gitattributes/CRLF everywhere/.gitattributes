@@ -33,7 +33,7 @@
 *.[pP][gG][xX]              binary
 
 # twinBASIC sources extensions - Prevent LF normalization (twin, tbform)
-*.[tT][wW][iI][nN]          -text diff linguist-language=VBA
+*.[tT][wW][iI][nN]          -text diff linguist-language=VB6
 *.[tT][bB][fF][oO][rR][mM]  -text diff linguist-language=JSON
 
 # twinBASIC project extension - Mark as binary (twinproj)
