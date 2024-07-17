@@ -33,4 +33,4 @@ The advantage of this method is that you only have to make the change in one pla
 
 That second extension avoids any ambiguity between VBA and VB6, but you won't be able to use the simple Export feature of the VBE since you'll need to perform the renaming on every export.
 
-[^1]: This is due to the fact that [Github Search relies on Go-Enry](https://github.com/github-linguist/linguist/blob/master/docs/troubleshooting.md#:~:text=GitHub%20Search%20relies%20on%20go%2Denry%20which%20doesn%27t%20support%20overrides%20at%20the%20moment%20(More%20info).) and [Go-Enrs doesn't support overrides at the moment.](https://github.com/go-enry/go-enry#:~:text=Overriding%20languages%20and%20types%20though%20.gitattributes%20is%20not%20yet%20supported.%20See%20%2318.)
+[^1]: This is due to the fact that [Github Search relies on Go-Enry](https://github.com/github-linguist/linguist/blob/master/docs/troubleshooting.md#:~:text=GitHub%20Search%20relies%20on%20go%2Denry%20which%20doesn%27t%20support%20overrides%20at%20the%20moment%20(More%20info).) and [Go-Enry doesn't support overrides at the moment.](https://github.com/go-enry/go-enry#divergences-from-linguist)
