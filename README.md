@@ -69,7 +69,7 @@ All the issues mentioned in the previous paragraph have a common cause: People t
 
 ### What about VBA projects with macOS support?
 
-Even if your VBA project has support for macOs, the Mac version of the VBE still expects the code files that it imports to use CRLF.
+Even if your VBA project has support for macOS, the Mac version of the VBE still expects the code files that it imports to use CRLF.
 
 ### Does the use of `-text` affect how Git performs diffs?
 
@@ -77,7 +77,11 @@ The short answer is no, this won't affect how Git performs diffs.
 
 The [`text` attribute](https://git-scm.com/docs/gitattributes#_text) is only there to determine if Git will perform line endings conversion, the [`diff` attribute](https://git-scm.com/docs/gitattributes#_generating_diff_text) is the one to determine how diffs are performed. 
 
-`-text` is not equivalent to the `binary` attribute. The `binary` attribute is a [macro attribute](https://git-scm.com/docs/gitattributes#_using_macro_attributes) equivalent to `-text -diff -merge`. Setting the `binary` attribute will indeed prevent diffs from being performed.
+`-text` is not equivalent to the `binary` attribute. The `binary` attribute is a [macro attribute](https://git-scm.com/docs/gitattributes#_using_macro_attributes) equivalent to unsetting the 3 attributes:
+```
+-text -diff -merge
+```
+Setting the `binary` attribute will indeed prevent diffs from being performed since it includes `-diff`, not because of `-text`.
 
 ### Should you specify the `working-tree-encoding` attribute?
 
