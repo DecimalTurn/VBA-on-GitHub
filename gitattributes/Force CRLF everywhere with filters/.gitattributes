@@ -11,11 +11,12 @@
 #   (The reason why we need the ".." is to move one folder up because the config file is located in the .git subfolder.)
 # - Then make sure that you have a file named .gitconfig in your Git repository like this file: https://github.com/DecimalTurn/VBA-on-GitHub/blob/main/gitattributes/Force%20CRLF%20everywhere%20with%20filters/.gitconfig
 
-# VBA extensions - Enforce CRLF using a filter (bas, cls, frm, vba)
+# VBA extensions - Enforce CRLF using a filter (bas, cls, frm, vba, doccls)
 *.[bB][aA][sS]              filter=crlf -text diff
 *.[cC][lL][sS]              filter=crlf -text diff
 *.[fF][rR][mM]              filter=crlf -text diff
 *.[vV][bB][aA]              filter=crlf -text diff
+*.[dD][oO][cC][cC][lL][sS]  filter=crlf -text diff
 
 # VBA extensions - Mark as binary (frx)
 *.[fF][rR][xX]              binary

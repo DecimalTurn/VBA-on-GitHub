@@ -3,11 +3,12 @@
 # By default, auto-detect text files and perform CRLF to LF conversion at checkin. LF to Native line endings conversion at checkout.
 * text=auto
 
-# VBA extensions (bas, cls, frm and vba) - Enforce CRLF in working directory
+# VBA extensions (bas, cls, frm, vba, doccls) - Enforce CRLF in working directory
 *.[bB][aA][sS]              text eol=crlf
 *.[cC][lL][sS]              text eol=crlf
 *.[fF][rR][mM]              text eol=crlf
 *.[vV][bB][aA]              text eol=crlf
+*.[dD][oO][cC][cC][lL][sS]  text eol=crlf
 
 # Other VBA extensions (frx) - Mark as binary
 *.[fF][rR][xX]              binary

@@ -2,11 +2,12 @@
 
 # Don't perform any line ending conversions by default
 
-# VBA extensions - Prevent LF normalization (bas, cls, frm, vba)
+# VBA extensions - Prevent LF normalization (bas, cls, frm, vba, doccls)
 *.[bB][aA][sS]              -text diff
 *.[cC][lL][sS]              -text diff
 *.[fF][rR][mM]              -text diff
 *.[vV][bB][aA]              -text diff
+*.[dD][oO][cC][cC][lL][sS]  -text diff
 
 # VBA extensions - Mark as binary (frm)
 *.[fF][rR][xX]              binary
