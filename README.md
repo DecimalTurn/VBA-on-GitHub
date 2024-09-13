@@ -19,7 +19,7 @@ This project is here to help you configure your VBA project on GitHub and discus
 
 A template .gitignore file is provided here: 
 
-📖 https://github.com/DecimalTurn/Using-VBA-on-GitHub/blob/main/gitignore/.gitignore
+📖 [Template](https://github.com/DecimalTurn/VBA-on-GitHub/blob/main/gitignore/.gitignore)
 
 ## Explanations
 
@@ -45,7 +45,7 @@ This is because git configurations are case-sensitive: if we don't want to use 2
 
 A template .gitattributes file is provided here: 
 
-📖 https://github.com/DecimalTurn/VBA-on-GitHub/blob/main/gitattributes/CRLF%20everywhere/.gitattributes
+📖 [Template](https://github.com/DecimalTurn/VBA-on-GitHub/blob/main/gitattributes/CRLF%20everywhere/.gitattributes)
 
 This template will make sure that Git doesn't perform any line endings or text encoding conversions.
 
@@ -122,7 +122,7 @@ The `.editorconfig` file is used by many popular IDE and text editor to specify 
 
 A template .editorconfig file is provided here: 
 
-📖 https://github.com/DecimalTurn/VBA-on-GitHub/blob/main/editorconfig/.editorconfig
+📖 [Template](https://github.com/DecimalTurn/VBA-on-GitHub/blob/main/editorconfig/.editorconfig)
 
 <hr>
 
