@@ -110,9 +110,12 @@ Get-WinSystemLocale | Select-Object @{ n='ANSI Code Page';   e={ $_.TextInfo.Ans
 ## Should you specify the `linguist-language` attribute?
 
 Regarding the attribute `linguist-language=vba`, I choose not to include it in the suggested template because I believe that GitHub's system to detect if a file is VBA or not is decent enough and if your files aren't detected as VBA, it might be telling you something about your code.
-  - Make sure that your files include the VBE's metadata such as the `Attribute VB_Name = "..."`
-  - Use the right file extensions
-  - If your `.bas` files doesn't contain any VBA specific syntax, maybe it's OK if is classified as VB6 instead.
+
+To mitigate misindentification, make sure that:
+  - Your files include the VBE's metadata such as the `Attribute VB_Name = "..."`
+  - You use the right file extensions (bas, frm or vba)
+
+If your `.bas` files are still marked as VB6, it's likely that they don't contain any VBA specific syntax, so maybe it's OK if is classified as VB6 instead 🤷. However, if you end up with the majority of you code identified as VB6, you can have a look a this [troubleshooting guide](https://github.com/DecimalTurn/VBA-on-GitHub/blob/main/TROUBLESHOOTING.md).
 
 # Should you include a .editorconfig file in your repository?
 
