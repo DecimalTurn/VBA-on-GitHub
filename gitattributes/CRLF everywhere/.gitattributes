@@ -9,7 +9,7 @@
 *.[vV][bB][aA]              -text diff
 *.[dD][oO][cC][cC][lL][sS]  -text diff
 
-# VBA extensions - Mark as binary (frm)
+# VBA extensions - Mark as binary (frx)
 *.[fF][rR][xX]              binary
 
 ############################################################################
