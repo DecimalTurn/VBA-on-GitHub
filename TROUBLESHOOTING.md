@@ -27,10 +27,8 @@ You can automate this process by using the [VBA-Language-Annotation](https://git
 
 ```
 
-The advantage of this method is that you only have to make the change in one place. The disadvantage is that this won't solve the problem for GitHub searches because the `linguist-language` attribute is not supported for searches [^1]. This means that if the VBA language filter is used in a search query, files that are currently labelled as VB6 still won't show up.
+The advantage of this method is that you only have to make the change in one place. The disadvantage is that this won't solve the problem for GitHub searches because the `linguist-language` attribute is not supported for searches. This means that if the VBA language filter is used in a search query, files that are currently labelled as VB6 still won't show up.
 
 ### C. Change the file extension from `.bas` to `.vba`
 
 That second extension avoids any ambiguity between VBA and VB6, but you won't be able to use the simple Export feature of the VBE since you'll need to perform the renaming on every export.
-
-[^1]: This is due to the fact that [Github Search relies on Go-Enry](https://github.com/github-linguist/linguist/blob/master/docs/troubleshooting.md#:~:text=GitHub%20Search%20relies%20on%20go%2Denry%20which%20doesn%27t%20support%20overrides%20at%20the%20moment%20(More%20info).) and [Go-Enry doesn't support overrides at the moment.](https://github.com/go-enry/go-enry#divergences-from-linguist)
