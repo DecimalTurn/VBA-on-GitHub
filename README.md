@@ -61,11 +61,11 @@ When creating a `.gitattributes`, a common practice is to include `* text=auto` 
 
 ### Should you include `* text=auto` in your .gitattributes?
 
-For VBA projects, the answer is no. In the suggested template, we don't include `* text=auto` because having this as the default for all file types requires you to be careful and override every case where this behavior can cause problems. All that without seeing much benefits.
+For VBA projects, the answer is (probably) no. In the suggested template, we don't include `* text=auto` because having this as the default for all file types requires you to be careful and override every case where this behavior can cause problems. All that without seeing much benefits.
 
 ### What are the dangers of using `* text=auto`?
 
-Some people warn against using `* text=auto` by saying that it could corrupt binary files, but usually Git is pretty good at determining if a file is a text or binary file meaning that this shouldn't be what worries you. The real worry comes from VBA's peculiarities.
+Some people warn against using `* text=auto` by saying that it could corrupt binary files, but usually Git is pretty good at determining if a file is a text or binary file meaning that this shouldn't be something what worries you. The real worry comes from VBA's peculiarities.
 
 The VBE's heyday was in the 90s. Back then, Windows was running on CRLF and there were no intentions of supporting that competing LF standardf used in Unix systems. Windows has now moved on and even Notepad supports LF nowadays, but the VBE does not, sadly.
 
