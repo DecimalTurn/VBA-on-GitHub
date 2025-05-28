@@ -51,21 +51,29 @@ This template will make sure that Git doesn't perform any line endings or text e
 
 ## Explanations
 
-If you need a refresher or you've never had to think about how line endings work, I'd suggest having a look at the introduction of [this article](https://www.hanselman.com/blog/carriage-returns-and-line-feeds-will-ultimately-bite-you-some-git-tips) by Scott Hanselman. It will explain the origin of this CRLF vs LF issue.
+If you need a refresher or you've never had to think about how line endings work, I'd suggest having a look at the introduction of [this article](https://www.hanselman.com/blog/carriage-returns-and-line-feeds-will-ultimately-bite-you-some-git-tips) by Scott Hanselman. It will explain the origin of this [CRLF][CRLFDEF] vs [LF][LFDEF] issue.
+
+### What does `* text=auto` actually do?
 
 When creating a `.gitattributes`, a common practice is to include `* text=auto` at the top of your file. This can be useful for certain cross-platform projects, but it's not really useful for VBA projects and it can even be a problem if that's the only entry you have in your `.gitattributes` file.
 
-`* text=auto` is normally used to let Git decide automatically for all files (`*`) if the `text` attribute should be "set" (aka. true) or "unset" (aka. false). Having the `text` attribute as set "enables end-of-line conversion: When a matching file is added to the index, the file's line endings are normalized to LF in the index." <sup>1</sup>. Usually, Git is pretty good at determining if a file is a text or binary file, but it's important to place that line at the top, so that the lines that come after can override this behavior when we need it to<sup>2</sup>.
+`* text=auto` is used to let Git decide automatically (`auto`) for all files (`*`) if the `text` attribute should be "set" (aka. true) or "unset" (aka. false). Having the `text` attribute as set enables end-of-line (EOL) conversion: When a matching file is added to the Git index, the file's line endings are normalized to LF<sup>1</sup>. 
 
-In the suggested template, we don't include `* text=auto` because having this as the default for all file types requires you to be careful to override every case where you don't want that behavior. All that without seeing much benefit. Feel free to add it if you prefer, but make sure to include the other entries in the `.gitattributes` template file as they will deal with the known cases where this rule is harmful.
+### Should you include `* text=auto` in your .gitattributes?
 
-### Why prevent LF normalization for VBA code?
+For VBA projects, the answer is no. In the suggested template, we don't include `* text=auto` because having this as the default for all file types requires you to be careful and override every case where this behavior can cause problems. All that without seeing much benefits.
 
-The VBE's heyday was in the 90s. Back then, Windows was running on CRLF and there were no intentions of supporting that competing LF standard. Windows has now moved on and even Notepad supports LF nowadays, but the VBE does not, sadly.
+### What are the dangers of using `* text=auto`?
 
-This means that the VBE expects files to use CRLF and if you try to import a VBA code file with LF, you'll experience weird bugs such as the one described [here](https://github.com/VBA-tools/VBA-Dictionary/issues/5), [here](https://github.com/VBA-tools/VBA-Dictionary/issues/12), [here](https://github.com/VBA-tools/VBA-Dictionary/issues/38), [here](https://github.com/VBA-tools/VBA-JSON/issues/265), [here](https://github.com/cristianbuse/VBA-UserForm-MouseScroll/issues/28), [here](https://www.reddit.com/r/vba/comments/1ddpvtb/comment/l875ps5/), [here](https://github.com/VBA-tools/VBA-Web/issues/24), [here](https://www.vbforums.com/showthread.php?910543-Github-corrupted-FRM-file-what-settings-do-you-have-in-gitattributes&p=5676869#post5676869) or [here](https://www.excelforum.com/excel-programming-vba-macros/1317233-importing-a-downloaded-from-file-from-web-is-not-working.html). For that reason, the recommended template `.gitattributes` file in this repository prevents Git from performing LF normalization on VBA code files (that are using CRLF since you've likely exported them via the VBE).
+Some people warn against using `* text=auto` by saying that it could corrupt binary files, but usually Git is pretty good at determining if a file is a text or binary file meaning that this shouldn't be what worries you. The real worry comes from VBA's peculiarities.
 
-All the issues mentioned in the previous paragraph have a common cause: People tried to download a single VBA code file, but GitHub gave them the "raw" file stored inside Git which used LF instead of CRLF. Indeed, the normalization is only taken care of when you clone or downloading the repository as a `.zip` file. But in the end, if we don't want new comers to face any of theses issues, the simplest option is to prevent all line normalization, just like what is suggested here.
+The VBE's heyday was in the 90s. Back then, Windows was running on CRLF and there were no intentions of supporting that competing LF standardf used in Unix systems. Windows has now moved on and even Notepad supports LF nowadays, but the VBE does not, sadly.
+
+This means that the VBE expects files to use CRLF and if you try to import a VBA code file with LF, you'll experience weird bugs (especially with `.frm` and `.cls` files) such as the one described [here](https://github.com/VBA-tools/VBA-Dictionary/issues/5), [here](https://github.com/VBA-tools/VBA-Dictionary/issues/12), [here](https://github.com/VBA-tools/VBA-Dictionary/issues/38), [here](https://github.com/VBA-tools/VBA-JSON/issues/265), [here](https://github.com/cristianbuse/VBA-UserForm-MouseScroll/issues/28), [here](https://www.reddit.com/r/vba/comments/1ddpvtb/comment/l875ps5/), [here](https://github.com/VBA-tools/VBA-Web/issues/24) or [here](https://www.excelforum.com/excel-programming-vba-macros/1317233-importing-a-downloaded-from-file-from-web-is-not-working.html). For that reason, the recommended template `.gitattributes` file in this repository prevents Git from performing LF normalization on VBA code files. This means that CRLFs will be preserved since you've likely exported them via the VBE which exports them using CRLF.
+
+All the issues mentioned in the previous paragraph have a common cause: People tried to download a single VBA code file, but GitHub gave them the "raw" file stored inside Git which included LF instead of CRLF. Indeed, the conversion back to CRLF is only taken care of when you clone or downloading the repository as a `.zip` file<sup>2</sup>. In the end, if we don't want newcomers to face any of theses issues, the simplest option is to prevent all line normalization, just like what is suggested here.
+
+And if you are confident that you have addressed all problematic cases including the ones in the `.gitattributes` template and still want to add `* text=auto`, feel free to do so, but it's important to place that line at the top, so that the lines that come after can override this behavior<sup>3</sup>.
 
 ### What about VBA projects with macOS support?
 
@@ -133,6 +141,14 @@ A template .editorconfig file is provided here:
 
 [1] - [Git - gitattributes Documentation](https://git-scm.com/docs/gitattributes#_text)
 
-[2] - [Mind the End of Your Line ∙ Adaptive Patchwork](https://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/)
+[2] - Note that using `* text=auto` without specifying `-text` or at least `eol=clrf` for `.frm` and `.cls` files will mean that the `.zip` file produced by GitHub when downloading a repo won't have their line endings converted back to CRLF. See for instance [here](https://www.vbforums.com/showthread.php?910543-Github-corrupted-FRM-file-what-settings-do-you-have-in-gitattributes&p=5676869#post5676869) or [here](https://github.com/joyfullservice/msaccess-vcs-addin/issues/150).
 
-[VBEDEF]: ## "VIsual Basic Editor"
+[3] - [Mind the End of Your Line ∙ Adaptive Patchwork](https://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/)
+
+[VBEDEF]: ## "Visual Basic Editor"
+
+[CRLFDEF]: ## "Carriage Return + Line Feed"
+
+[LFDEF]: ## "Line Feed (only)"
+
+ 
