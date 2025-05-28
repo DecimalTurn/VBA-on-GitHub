@@ -47,10 +47,10 @@
 # Other Windows-specific extensions
 ############################################################################
 
-# INI file extensions - Prevent LF normalization (ini)
+# INI file extensions - Enforce CRLF in working directory (ini)
 *.[iI][nN][iI]              text eol=crlf
 
-# Batch scripts - Prevent LF normalization (cmd, bat)
+# Batch scripts - Enforce CRLF in working directory (cmd, bat)
 *.[cC][mM][dD]              text eol=crlf
 *.[bB][aA][tT]              text eol=crlf
 
