@@ -49,6 +49,8 @@ A template .gitattributes file is provided here:
 
 This template will make sure that Git doesn't perform any line endings or text encoding conversions.
 
+⚠️ If you've already commited to your repo before starting to use this template and your previous `.gitattributes` was using `* text=auto`, you will also have to perform a second step after introducing the template: line re-normalization of your code files. Otherwise, VBA files will have the wrong line endings inside Git. To do that, you could re-export all your VBA code files or use [Enforce-CRLF](https://github.com/DecimalTurn/Enforce-CRLF) for instance.
+
 ## Explanations
 
 If you need a refresher or you've never had to think about how line endings work, I'd suggest having a look at the introduction of [this article](https://www.hanselman.com/blog/carriage-returns-and-line-feeds-will-ultimately-bite-you-some-git-tips) by Scott Hanselman. It will explain the origin of this [CRLF][CRLFDEF] vs [LF][LFDEF] issue.
