@@ -57,7 +57,7 @@ When creating a `.gitattributes`, a common practice is to include `* text=auto` 
 
 `* text=auto` is normally used to let Git decide automatically for all files (`*`) if the `text` attribute should be "set" (aka. true) or "unset" (aka. false). Having the `text` attribute as set "enables end-of-line conversion: When a matching file is added to the index, the file's line endings are normalized to LF in the index." <sup>1</sup>. Usually, Git is pretty good at determining if a file is a text or binary file, but it's important to place that line at the top, so that the lines that come after can override this behavior when we need it to<sup>2</sup>.
 
-In the suggested template, we don't include `* text=auto` because having this as the default for all file types requires you to be careful to override every case where you don't want that behavior. All that without seeing much benefit. Feel free to add it if you prefer, but make sure to include the other entries in the `.gitattributes` template file as they will deal with the exceptions to this rule.
+In the suggested template, we don't include `* text=auto` because having this as the default for all file types requires you to be careful to override every case where you don't want that behavior. All that without seeing much benefit. Feel free to add it if you prefer, but make sure to include the other entries in the `.gitattributes` template file as they will deal with the known cases where this rule is harmful.
 
 ### Why prevent LF normalization for VBA code?
 
