@@ -59,7 +59,7 @@ If you need a refresher or you've never had to think about how line endings work
 
 When creating a `.gitattributes`, a common practice is to include `* text=auto` at the top of your file. This can be useful for certain cross-platform projects, but it's not really useful for VBA projects and it can even be a problem if that's the only entry you have in your `.gitattributes` file.
 
-`* text=auto` is used to let Git decide automatically (`auto`) for all files (`*`) if the `text` attribute should be "set" (aka. true) or "unset" (aka. false). Having the `text` attribute as set enables end-of-line (EOL) conversion: When a matching file is added to the Git index, the file's line endings are normalized to LF<sup>1</sup>. 
+`* text=auto` is used to let Git decide automatically (`auto`) for all files (`*`) if the `text` attribute should be "set" (aka. true) or "unset" (aka. false). Having the `text` attribute as set enables end-of-line (EOL) conversion: when a matching file is added to the Git index, the file's line endings are normalized to LF<sup>1</sup>. 
 
 ### Should you include `* text=auto` in your .gitattributes?
 
@@ -67,7 +67,7 @@ For VBA projects, the answer is (probably) no. In the suggested template, we don
 
 ### What are the dangers of using `* text=auto`?
 
-Some people warn against using `* text=auto` by saying that it could corrupt binary files, but usually Git is pretty good at determining if a file is a text or binary file meaning that this shouldn't be something what worries you. The real worry comes from VBA's peculiarities.
+Some people warn against using `* text=auto` by saying that it could corrupt binary files, but usually Git is pretty good at determining if a file is a text or binary file meaning that this shouldn't be something that worries you. The real worry comes from VBA's peculiarities.
 
 The VBE's heyday was in the 90s. Back then, Windows was running on CRLF and there were no intentions of supporting that competing LF standardf used in Unix systems. Windows has now moved on and even Notepad supports LF nowadays, but the VBE does not, sadly.
 
