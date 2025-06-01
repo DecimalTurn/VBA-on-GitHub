@@ -49,7 +49,7 @@ A template .gitattributes file is provided here:
 
 This template will make sure that Git doesn't perform any line endings or text encoding conversions.
 > [!WARNING]  
-> If you've already commited to your repo before starting to use this template and your previous `.gitattributes` was using `* text=auto`, you will also have to perform a second step after introducing the template: line re-normalization of your code files. Otherwise, VBA files will have the wrong line endings inside Git. To do that, you could re-commit all your VBA code files using the command `git add . --renormalize` or use [Enforce-CRLF](https://github.com/DecimalTurn/Enforce-CRLF) for instance.
+> If you've already commited to your repo before starting to use this template and your previous `.gitattributes` was using `* text=auto`, you will also have to perform a second step after introducing the template: line re-normalization of your code files. Otherwise, VBA files will still have the wrong line endings inside Git. To do that, you could re-commit all your VBA code files using the command `git add . --renormalize` or use [Enforce-CRLF](https://github.com/DecimalTurn/Enforce-CRLF) for instance.
 
 ## Explanations
 
