@@ -23,7 +23,7 @@ A template .gitignore file is provided here:
 
 ## Explanations
 
-Luckily for us, the [VBE][VBEDEF] doesn't really create local or temporary files that you don't want to share outside of your computer (unlike for other IDEs like [VScode](https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore)). However, the Office application you are using might create temporary files that remain on the disk as long as the Office document is open to indicate to others that someone is working in the file ([more details](https://superuser.com/questions/405257/what-type-of-file-is-file)).
+Luckily for us, the [VBE][VBEDEF] doesn't really create local or temporary files that you don't want to share outside of your computer (unlike for other IDEs like [VS Code](https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore)). However, the Office application you are using might create temporary files that remain on the disk as long as the Office document is open to indicate to others that someone is working in the file ([more details](https://superuser.com/questions/405257/what-type-of-file-is-file)).
 
 This is why an exclusion exists for this type of file (starting with ~$):
 ```
