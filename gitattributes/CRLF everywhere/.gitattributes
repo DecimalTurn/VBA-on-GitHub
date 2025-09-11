@@ -54,8 +54,11 @@
 *.[bB][aA][tT]              -text diff
 
 ############################################################################
-# Optional Sections
+# Additional Sections
 ############################################################################
+
+# VBA packages from XVBA (https://marketplace.visualstudio.com/items?itemName=local-smart.excel-live-server)
+**/xvba_modules/**          linguist-vendored=true
 
 # Excel documents (xla, xlam, xls, xlsb, xlsm and xlsx)
 *.[xX][lL][aA]              binary
