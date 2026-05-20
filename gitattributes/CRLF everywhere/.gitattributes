@@ -75,12 +75,12 @@
 
 # PowerPoint documents (ppt and pptx)
 *.[pP][pP][tT]              binary
-*.[pP][pP][tT][xX]          binary                  
+*.[pP][pP][tT][xX]          binary
 
 # Access documents (accdb)
 *.[aA][cC][cC][dD][bB]      binary
 
-# Images (jpg, png, bmp, gif, ico)           
+# Images (jpg, png, bmp, gif, ico)
 *.[jJ][pP][gG]              binary
 *.[pP][nN][gG]              binary
 *.[bB][mM][pP]              binary
